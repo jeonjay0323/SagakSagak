@@ -16,17 +16,24 @@
     });
   </script>
     <div class="nav">
-        <button type="button" class="logo" onclick="location.href='index.html'"><h1>SAGAK SAGAK</h1></button>
+        <button type="button" class="logo" onclick="location.href='index.html'"><img src="src/logo_column.svg"></button>
         <div class="btn_wrap">
             <button type="button" class="paper_btn" onclick="location.href='paper.html'">고민페이퍼</button>
-            <button type="button" class="link_btn" onclick="location.hrefhttps://sagaksagak.netlify.app/">🔗 링크 공유하기</button>
+            <button id="copyBtn" type="button" class="link_btn">🔗 링크 공유하기</button>
+            <p id="copyMsg" style="display: none;">✅ 복사되었습니다!</p>
         </div>
     </div>
     <div class="main">
-        <div class="brand_character">
+        <!-- <div class="brand_character">
             <img src="https://upload3.inven.co.kr/upload/2023/08/30/bbs/i015914928695.jpg">
+        </div> -->
+        <div id="typing_container">
+          <p class="typing_line">‘사각사각’은 말하지 못한</p>
+          <p class="typing_line">우리의 이야기들을 써내려갑니다.</p>
+          <p class="typing_line">아직 보호받지 못한</p>
+          <p class="typing_line">‘사각지대’를 메우기 위해.</p>
+          <p class="typing_line">우리는 ‘청소년' 근로자 입니다.</p>
         </div>
-        <h2 class="title">말하지 못한 어려움이 있나요? <br> 여기에 적어보세요. <br>해결 방법을 조언해드려요.</h2>
         <div class="question-box" draggable="true" id="draggableBox">
           아르바이트 중 사장님이 저를 때렸어요.
         </div>

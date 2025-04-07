@@ -74,3 +74,47 @@ window.addEventListener("load", () => {
       document.getElementById("content").style.display = "block";
     }, 4000); // ← 시간 조정 가능 (단위: ms)
   });
+
+// copylink 버튼
+document.getElementById('copyBtn').addEventListener('click', () => {
+    const url = window.location.href;
+  
+    navigator.clipboard.writeText(url)
+      .then(() => {
+        const msg = document.getElementById('copyMsg');
+        msg.style.display = 'block';
+        setTimeout(() => {
+          msg.style.display = 'none';
+        }, 2000); // 2초 후 메시지 숨김
+      })
+      .catch((err) => {
+        alert('복사에 실패했습니다: ' + err);
+      });
+  });
+
+// 타이핑 효과
+const lines = document.querySelectorAll('.typing-line');
+
+function typeLine(lineEl, text, delay = 50) {
+  return new Promise(resolve => {
+    let i = 0;
+    const interval = setInterval(() => {
+      lineEl.textContent += text[i];
+      i++;
+      if (i >= text.length) {
+        clearInterval(interval);
+        lineEl.classList.add('done');
+        resolve();
+      }
+    }, delay);
+  });
+}
+
+async function typeAllLines() {
+  for (let line of lines) {
+    const text = line.dataset.text;
+    await typeLine(line, text);
+  }
+}
+
+window.addEventListener('DOMContentLoaded', typeAllLines);
